@@ -1,0 +1,9 @@
+content consoleplus content/consoleplus/
+
+overlay chrome://browser/content/browser.xul chrome://consoleplus/content/init.xul
+skin consoleplus classic/1.0 skin/classic/consoleplus/
+style chrome://browser/content/browser.xul chrome://consoleplus/skin/consoleplus.css
+style chrome://global/content/customizeToolbar.xul chrome://consoleplus/skin/consoleplus.css
+
+locale consoleplus en-US locale/en-US/
+locale consoleplus nl-NL locale/nl-NL/
