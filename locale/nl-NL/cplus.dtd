@@ -1,0 +1,30 @@
+<!ENTITY consolerun.label "Console+">
+<!ENTITY interface1.label "Evalueer">
+<!ENTITY clear.label "Leegmaken">
+<!ENTITY copy.label "Kopieër">
+<!ENTITY btn1.label "Error legen">
+<!ENTITY btn2.label "Eval legen">
+<!ENTITY btn3.label "Geheugen legen">
+<!ENTITY btn4.label "Profiel">
+<!ENTITY btn5.label "Extensies">
+<!ENTITY btn6.label "JS Aan">
+<!ENTITY btn7.label "JS uit">
+<!ENTITY btn8.label "Herlaad Chrome">
+<!ENTITY btn9.label "Herstart">
+<!ENTITY menu1.label "Classes">
+<!ENTITY menu2.label "Interfaces">
+<!ENTITY menu3.label "Class uitleggen">
+<!ENTITY menu4.label "Interface uitleggen">
+<!ENTITY menu5.label "XUL Element reference">
+<!ENTITY menu6.label "XUL Attribute reference">
+<!ENTITY menu7.label "XUL Event reference">
+<!ENTITY ref.label "?">
+<!ENTITY closetag.label "Close tag">
+<!ENTITY preview.label "Voorbeeld XUL">
+<!ENTITY enumerate.label "Class uitklappen">
+<!ENTITY tab1.label "Console">
+<!ENTITY tab2.label "Referenties">
+<!ENTITY tab3.label "XUL Explorer">
+<!ENTITY searching.label "Uitleggen">
+
+

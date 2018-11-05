@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+    <?xml-stylesheet href="chrome://consoleplus/skin/consoleplus.css" type="text/css"?>
+        <!DOCTYPE window SYSTEM "chrome://consoleplus/locale/cplus.dtd">
+        <window id="ConsolePlusWindow" title="Console+" width="960" height="750"
+        xmlns:html="http://www.w3.org/1999/xhtml" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        onunload="cplus.shutdown();" persist="screenX screenY width height sizemode">
+            <script type="application/javascript" src="xul.js" />
+            <script type="application/javascript" src="consoleplus.js" />
+            <tabbox class="cpbox" flex="1">
+                <tabs>
+                    <tab label="&tab1.label;" />
+                    <tab label="&tab2.label;" />
+                    <tab label="&tab3.label;" />
+                </tabs>
+                <tabpanels class="cpbox" flex="1">
+                    <tabpanel class="cpbox" flex="2">
+                        <vbox class="cpbox" flex="2">
+                            <hbox>
+                                <menulist oncommand="cplus.populate(this.value);" id="classesmenu_main">
+                                    <menupopup id="classesmenu">
+                                        <menuitem label="&menu1.label;" selected="selected" />
+                                    </menupopup>
+                                </menulist>
+                                <menulist oncommand="cplus.populate(this.value);" id="interfacesmenu_main">
+                                    <menupopup id="interfacesmenu">
+                                        <menuitem label="&menu2.label;" selected="selected" />
+                                    </menupopup>
+                                </menulist>
+                            </hbox>
+                            <hbox flex="7">
+                                <textbox id="CplusTextboxEval" value="" multiline="true" rows="15" flex="2"/>
+                            </hbox>
+                            <spacer flex="1" />
+                            <hbox>
+                                <button id="CplusButton" class="CplusButton" label="&interface1.label;"
+                                accesskey="" flex="2" oncommand="cplus.run();" />
+                                <button id="CplusButton" class="CplusButton" label="&clear.label;" accesskey=""
+                                oncommand="cplus.clearconsole('CplusTextboxEval')" />
+                                <button id="CplusButton" class="CplusButton" label="&copy.label;" accesskey=""
+                                oncommand="cplus.copyconsole('CplusTextboxEval')" />
+                            </hbox>
+                            <vbox id="CplusConsoleBox" flex="1" context="CplusConsoleContext" persist="sortOrder"/>
+                            <hbox flex="5">
+                                <textbox id="CplusEvaluatorResult" value="" multiline="true" rows="14"
+                                flex="2" />
+                            </hbox>
+                            <spacer flex="1" />
+                            <hbox flex="5">
+                                <richlistbox id="richlist" flex="1">
+                                    <richlistitem>
+                                    </richlistitem>
+                                </richlistbox>
+                            </hbox>
+                            <spacer flex="2" />
+                            <hbox>
+                                <iframe name="CplusEvaluator" id="CplusEvaluator" src="about:blank" type="chrome"
+                                height="1" collapsed="true" />
+                            </hbox>
+                            <groupbox id="buttonlist">
+                                <hbox flex="1">
+                                    <button id="CplusButton" class="CplusButton" label="UUID" accesskey=""
+                                    flex="1" oncommand="cplus.uuid('CplusEvaluatorResult');" />
+                                    <button label="&btn1.label;" class="CplusButton" oncommand="cplus.clear();"
+                                    flex="1" />
+                                    <button label="&btn2.label;" class="CplusButton" oncommand="cplus.clearval();"
+                                    flex="1" />
+                                    <button label="&btn3.label;" class="CplusButton" oncommand="cplus.loader('memory');"
+                                    flex="1" />
+                                    <button label="&btn4.label;" class="CplusButton" oncommand="cplus.loader('profile');"
+                                    flex="1" />
+                                    <button label="&btn5.label;" class="CplusButton" oncommand="cplus.loader('ext');"
+                                    flex="1" />
+                                    <button label="&btn6.label;" class="CplusButton" oncommand="cplus.loader('startjs');"
+                                    flex="1" />
+                                    <button label="&btn7.label;" class="CplusButton" oncommand="cplus.loader('stopjs');"
+                                    flex="1" />
+                                    <button label="&btn8.label;" class="CplusButton" oncommand="cplus.loader('reloadchrome');"
+                                    flex="1" />
+                                    <button label="&btn9.label;" class="CplusButton" oncommand="cplus.loader('boot');"
+                                    flex="1" />
+                                </hbox>
+                            </groupbox>
+                        </vbox>
+                    </tabpanel>
+                    <tabpanel flex="1">
+                        <vbox flex="8">
+                            <hbox>
+                                <menulist id="classesmenu_main_ref" flex="3">
+                                    <menupopup id="classesmenu_ref">
+                                        <menuitem label="&menu1.label;" selected="selected" />
+                                    </menupopup>
+                                </menulist>
+                                <button id="CplusButton" class="CplusButton" label="&enumerate.label;"
+                                accesskey="" flex="1" oncommand="cplus.enumerateclass('CplusTextboxEnumRef');"/>
+                            </hbox>
+                            <hbox>
+                                <vbox flex="8">
+                                    <tree id="classlist" minheight="640" enableColumnDrag="true" hidecolumnpicker="true"
+                                    flex="11" onselect="" ondblclick="">
+                                        <treecols>
+                                            <treecol id="classlistvalue" label="Name" flex="1" persist="width ordinal hidden"
+                                            class="tree" />
+                                            <splitter resizeafter="farthest" class="cplussplit" />
+                                            <treecol id="classlistvalue" label="Value" flex="2" persist="width ordinal hidden"
+                                            class="tree" />
+                                        </treecols>
+                                        <treechildren id="tree-children-classlist"></treechildren>
+                                    </tree>
+                                </vbox>
+                                <splitter flex="0" class="cplussplit"></splitter>
+                                <vbox flex="8">
+                                    <tree minheight="640" id="interfacelist" enableColumnDrag="true" hidecolumnpicker="true"
+                                    flex="11" onselect="" ondblclick="">
+                                        <treecols>
+                                            <treecol id="interfacelistvalue" label="Interface" flex="1" persist="width ordinal hidden"
+                                            class="tree" />
+                                            <splitter class="cplussplit" resizeafter="farthest" />
+                                            <treecol id="interfacelistvalue" label="Value" flex="2" persist="width ordinal hidden"
+                                            class="tree" />
+                                        </treecols>
+                                        <treechildren id="tree-children-interfacelist"></treechildren>
+                                    </tree>
+                                </vbox>
+                            </hbox>
+                        </vbox>
+                    </tabpanel>
+                    <tabpanel flex="2">
+  <vbox flex="0">
+                            <hbox>
+                                <image src="chrome://consoleplus/skin/xulexplorer.png" accesskey="" />
+                            </hbox>
+                            <hbox>
+                                <richlistbox id="elementsmenu" flex="1" style="height:170px;">
+                                    <richlistitem>
+                                    </richlistitem>
+                                </richlistbox>
+                            </hbox>
+                            <hbox>
+                                <image src="chrome://consoleplus/skin/mozref.png" class="CplusImage" accesskey=""
+                                onclick="cplus.explain('element');" tooltiptext="Mozilla reference" />
+								<button oncommand="cplus.populateXul('elementsmenu');" label="Paste" />
+								<button id="CplusButton" class="CplusButton" label="&closetag.label;" accesskey="" oncommand="cplus.closetag('elementsmenu');" />
+                            </hbox>
+                            <hbox>
+                                <richlistbox id="attributesmenu" flex="1" style="height:170px;">
+                                    <richlistitem>
+                                    </richlistitem>
+                                </richlistbox>
+                            </hbox>
+                            <hbox>
+                                <image src="chrome://consoleplus/skin/mozref.png" class="CplusImage" accesskey=""
+                                onclick="cplus.explain('attribute');" tooltiptext="Mozilla reference" />
+								<button oncommand="cplus.populateXul('attributesmenu');" label="Paste" />
+								
+                            </hbox>
+                            <hbox>
+                                <richlistbox id="eventsmenu" flex="1" style="height:170px;">
+                                    <richlistitem>
+                                    </richlistitem>
+                                </richlistbox>
+                            </hbox>
+                            <hbox>
+                                <image src="chrome://consoleplus/skin/mozref.png" class="CplusImage" onclick="cplus.explain('events');"
+                                tooltiptext="Mozilla reference" />
+								<button oncommand="cplus.populateXul('eventsmenu');" label="Paste" />
+                            </hbox>
+                        </vbox>
+                        <splitter class="cplussplit"></splitter>
+                        <vbox flex="15">
+                            <hbox flex="14">
+                                <textbox id="CplusXulText" value="" multiline="true" rows="22" flex="15"/>
+                            </hbox>
+                            <hbox flex="0" align="right">
+                                <textbox value="950" id="xulwidth" label="W" size="4" />
+                                <label value="x" />
+                                <textbox value="450" id="xulheight" label="H" size="4" />
+                                <button id="CplusButton" class="CplusButton" label="&preview.label;" accesskey=""
+                                flex="3" oncommand="cplus.loadxul();" />
+                            </hbox>
+                        </vbox>
+                    </tabpanel>
+                </tabpanels>
+            </tabbox>
+            <script>
+                cplus.logger('ConsolePlusConsole', cplus.readconsole(0));
+                cplus.enumerate('classes');
+                cplus.enumerate('interfaces');
+                cplus.enumeratelist('elements');
+                cplus.enumeratelist('attributes');
+                cplus.enumeratelist('events');
+            </script>
+        </window>

@@ -1,0 +1,31 @@
+<!ENTITY consolerun.label "Console+">
+<!ENTITY interface1.label "Evaluate">
+<!ENTITY clear.label "Clear">
+<!ENTITY copy.label "Copy">
+<!ENTITY btn1.label "Prune Error">
+<!ENTITY btn2.label "Clear Eval">
+<!ENTITY btn3.label "Clear Memory">
+<!ENTITY btn4.label "Profile">
+<!ENTITY btn5.label "Extensions">
+<!ENTITY btn6.label "Enable JS">
+<!ENTITY btn7.label "Disable JS">
+<!ENTITY btn8.label "Reload Chrome">
+<!ENTITY btn9.label "Boot Firefox">
+<!ENTITY menu1.label "Classes">
+<!ENTITY menu2.label "Interfaces">
+<!ENTITY menu3.label "Explain Class">
+<!ENTITY menu4.label "Explain Interface">
+<!ENTITY menu5.label "XUL Element reference">
+<!ENTITY menu6.label "XUL Attribute reference">
+<!ENTITY menu7.label "XUL Event reference">
+<!ENTITY ref.label "?">
+<!ENTITY closetag.label "Close tag">
+<!ENTITY preview.label "Preview XUL">
+<!ENTITY enumerate.label "Enumerate class">
+<!ENTITY tab1.label "Console">
+<!ENTITY tab2.label "Reference">
+<!ENTITY tab3.label "XUL Explorer">
+<!ENTITY searching.label "Explain">
+
+
+

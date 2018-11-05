@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://consoleplus/skin/consoleplus.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://consoleplus/locale/cplus.dtd">
+<overlay id="consoleplusOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/x-javascript" src="chrome://consoleplus/content/init.js"></script> 
+  	<menupopup id="menu_ToolsPopup">
+    <menuitem id="consoleplus-hello" label="&consolerun.label;" oncommand="launchconsoleplus();" insertbefore="prefSep"/>
+  </menupopup>
+</overlay>
