@@ -1,6 +1,5 @@
 /* ***** BEGIN LICENSE BLOCK *****
- * 
- * Copyright (C) 2011 SUN.IO, Sasha van den Heetkamp.
+ * Copyright (C) 2011, Alexandra van den Heetkamp.
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,10 +14,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
- *
- * SUN.IO - Sasha van den Heetkamp.
- * Electronic mail: sasha@sun.io
- *
  * ***** END LICENSE BLOCK ***** */
  
 Components.utils.import("resource://gre/modules/Services.jsm");
